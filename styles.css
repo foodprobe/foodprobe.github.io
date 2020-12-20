@@ -1,0 +1,47 @@
+#container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #B4B8C7;
+  font-family: Arial;
+}
+
+img {
+  width: 50%;
+  margin: auto;
+  display: block;
+}
+
+.fixed-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: auto;
+  background-color: #E2E6F2;
+}
+
+#statusText {
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0 auto;
+  color: #101136;
+  font-size: 26px;
+  width: 200px;
+  overflow-x: visible;
+  cursor: default;
+  padding: 12px 0;
+  -webkit-user-select: none;
+}
+
+#waves {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
