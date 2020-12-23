@@ -8,12 +8,14 @@ statusText.addEventListener('click', function() {
 
 
   //Connect to probe
+  console.log("Connecting to probe...");
   ETISensor.connect()
   //Setup Temperature measurements
   .then(() => ETISensor.startNotificationsTempMeasurement().then(handleTempMeasurement))
   .catch(error => {
     //statusText.textContent = error;
     //statusText.textContent = "Click to connect probe: " + error;
+    console.log("Error connecting to probe: " + error)
     statusText.textContent = "Click to connect probe";
   });
 });
