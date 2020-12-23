@@ -10,7 +10,7 @@
     connect() {
       let options = {
         acceptAllDevices: true,
-        //optionalServices: ['generic_access']
+        optionalServices: ['generic_access']
       }
 
       return navigator.bluetooth.requestDevice(options)
