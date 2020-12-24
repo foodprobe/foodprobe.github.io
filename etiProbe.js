@@ -9,7 +9,7 @@
     }
     connect() {
       let options = {
-        acceptAllDevices: true,
+        acceptAllDevices: true
         //optionalServices: ['generic_access']
       }
 
