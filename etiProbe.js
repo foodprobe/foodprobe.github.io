@@ -9,7 +9,7 @@
     }
     connect() {
       let options = {
-        //acceptAllDevices: true,
+        acceptAllDevices: true,
         optionalServices: ['45544942-4c55-4554-4845-524db87ad700']
       }
 
