@@ -24,7 +24,7 @@ statusText.addEventListener('click', onClick);
     console.log("Error connecting to probe: " + error)
     statusText.textContent = "Click to connect probe";
   });
-});
+}
 
 //Handler for new temperature measurement.
 function handleTempMeasurement(tempMeasurement) {
