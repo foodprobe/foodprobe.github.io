@@ -1,6 +1,8 @@
 var canvas = document.querySelector('canvas');
 var statusText = document.querySelector('#statusText');
 var serialPrefix = "00000000";
+var measurementCount = 0;
+var maxMeasurements = 60;
 
 statusText.addEventListener('click', function() {
   statusText.textContent = '...';
@@ -10,6 +12,7 @@ statusText.addEventListener('click', function() {
   //Connect to probe
   console.log("Connecting to probe...");
   ETISensor.connect()
+  measurementCount = 0;
   //Setup Temperature measurements
   .then(() => ETISensor.startNotificationsTempMeasurement().then(handleTempMeasurement))
   .catch(error => {
@@ -29,7 +32,13 @@ function handleTempMeasurement(tempMeasurement) {
 
     //Send tempMeasurement.temperature via Http
     sendData(tempMeasurement.temperature, serialPrefix + ETISensor.getDevice().name.substring(0, 8));
-
+    
+    if (measurementCount == maxMeasurements) {
+      ETISensor.connect(); //reset
+    } 
+    measurementCount = measurementCount++;
+    console.log("Measurement count: " + measurementCount);
+    
     //Graph
     drawWaves();
   });
