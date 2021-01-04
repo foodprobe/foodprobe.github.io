@@ -4,7 +4,10 @@ var serialPrefix = "00000000";
 var measurementCount = 0; //used to count how many measurements are taken
 var maxMeasurements = 60; //adjusts how many measurements are taken before a reset (prevents unit left on)
 
-statusText.addEventListener('click', function() {
+statusText.addEventListener('click', onClick);
+                            
+                            
+  function onClick() {
   statusText.textContent = '...';
   temperatures = [];
 
@@ -34,7 +37,7 @@ function handleTempMeasurement(tempMeasurement) {
     sendData(tempMeasurement.temperature, serialPrefix + ETISensor.getDevice().name.substring(0, 8));
     
     if (measurementCount == maxMeasurements) {
-      ETISensor.connect(); //reset
+      onClick(); //reset
     } 
     measurementCount = measurementCount + 1;
     console.log("Measurement count: " + measurementCount);
