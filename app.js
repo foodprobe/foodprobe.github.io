@@ -1,8 +1,8 @@
 var canvas = document.querySelector('canvas');
 var statusText = document.querySelector('#statusText');
 var serialPrefix = "00000000";
-var measurementCount = 0;
-var maxMeasurements = 60;
+var measurementCount = 0; //used to count how many measurements are taken
+var maxMeasurements = 60; //adjusts how many measurements are taken before a reset (prevents unit left on)
 
 statusText.addEventListener('click', function() {
   statusText.textContent = '...';
