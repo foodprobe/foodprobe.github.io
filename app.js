@@ -36,7 +36,7 @@ function handleTempMeasurement(tempMeasurement) {
     if (measurementCount == maxMeasurements) {
       ETISensor.connect(); //reset
     } 
-    measurementCount = measurementCount++;
+    measurementCount = measurementCount + 1;
     console.log("Measurement count: " + measurementCount);
     
     //Graph
