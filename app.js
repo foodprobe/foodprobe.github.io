@@ -37,7 +37,8 @@ function handleTempMeasurement(tempMeasurement) {
     sendData(tempMeasurement.temperature, serialPrefix + ETISensor.getDevice().name.substring(0, 8));
     
     if (measurementCount == maxMeasurements) {
-      onClick(); //reset
+      statusText.textContent = 'Timed Out. Please reconnect.';
+      ETISensor.stopNotificationsTempMeasurement();
     } 
     measurementCount = measurementCount + 1;
     console.log("Measurement count: " + measurementCount);
