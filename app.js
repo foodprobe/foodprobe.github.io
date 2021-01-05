@@ -18,7 +18,7 @@ statusText.addEventListener('click', onClick);
 
 
   //Connect to probe
-  console.log("V1.0. Connecting to probe...");
+  console.log("V0.1. Connecting to probe...");
   ETISensor.connect()
   //Setup Temperature measurements
   .then(() => ETISensor.startNotificationsTempMeasurement().then(handleTempMeasurement))
