@@ -30,33 +30,7 @@ statusText.addEventListener('click', onClick);
   });
 }
 
-// function event() {
-  
-//     var tempMeasurement = ETISensor.parseTemperature(event.target.value);
-//     statusText.innerHTML = tempMeasurement.temperature.toFixed(2) + ' &deg;C';
-//     temperatures.push(tempMeasurement.temperature);
-
-//     //Send tempMeasurement.temperature via Http
-//     sendData(apiKey, tempMeasurement.temperature, serialPrefix + ETISensor.getDevice().name.substring(0, 8));
-    
-    
-//     if (measurementCount >= maxMeasurements) {
-//       statusText.textContent = 'Please reconnect.';
-//       ETISensor.stopNotificationsTempMeasurement();
-//       //tempMeasurement.removeEventListener('characteristicvaluechanged', event);
-//       measurementCount = 0;
-//     } 
-//     measurementCount = measurementCount + 1;
-//     console.log("Measurement count: " + measurementCount);
-    
-//     //Graph
-//     drawWaves();
-//   }
-
-
-//Handler for new temperature measurement.
-function handleTempMeasurement(tempMeasurement) {
-  tempMeasurement.addEventListener('characteristicvaluechanged', event => {
+function tempEvent() {
   
     var tempMeasurement = ETISensor.parseTemperature(event.target.value);
     statusText.innerHTML = tempMeasurement.temperature.toFixed(2) + ' &deg;C';
@@ -77,8 +51,12 @@ function handleTempMeasurement(tempMeasurement) {
     
     //Graph
     drawWaves();
-  });
-  
+  }
+
+
+//Handler for new temperature measurement.
+function handleTempMeasurement(tempMeasurement) {
+  tempMeasurement.addEventListener('characteristicvaluechanged', tempEvent);
 }
 
 var temperatures = [];
