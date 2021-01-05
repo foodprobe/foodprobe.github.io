@@ -11,8 +11,9 @@ statusText.addEventListener('click', onClick);
   statusText.textContent = '...';
   temperatures = [];
     
-  //dummy prompt
-  var person = prompt("Please enter your name", "Harry Potter");
+  //Prompt for API key
+  //TODO - proper authentication
+  var apiKey = prompt("Please enter the API password");
 
 
   //Connect to probe
