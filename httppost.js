@@ -7,7 +7,7 @@ var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
     
 xmlhttp.open("POST", url, true);
 xmlhttp.setRequestHeader("Content-Type", "application/json");
-xmlhttp.setRequestHeader("Authorization", "Basic " + btoa("koolzone_api:" + authKey); 
+xmlhttp.setRequestHeader("Authorization", "Basic " + btoa("koolzone_api:" + authKey)); 
 
 //Add Handler
 xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
