@@ -3,6 +3,7 @@ var statusText = document.querySelector('#statusText');
 var serialPrefix = "00000000";
 var measurementCount = 0; //used to count how many measurements are taken
 var maxMeasurements = 10; //adjusts how many measurements are taken before a reset (prevents unit left on)
+var apiKey;
 
 statusText.addEventListener('click', onClick);
                             
@@ -13,7 +14,7 @@ statusText.addEventListener('click', onClick);
     
   //Prompt for API key
   //TODO - proper authentication
-  var apiKey = prompt("Please enter the API password");
+  apiKey = prompt("Please enter the API password");
 
 
   //Connect to probe
@@ -37,7 +38,7 @@ function handleTempMeasurement(tempMeasurement) {
     temperatures.push(tempMeasurement.temperature);
 
     //Send tempMeasurement.temperature via Http
-    sendData(tempMeasurement.temperature, serialPrefix + ETISensor.getDevice().name.substring(0, 8));
+    sendData(apiKey, tempMeasurement.temperature, serialPrefix + ETISensor.getDevice().name.substring(0, 8));
     
     if (measurementCount == maxMeasurements) {
       statusText.textContent = 'Please reconnect.';
