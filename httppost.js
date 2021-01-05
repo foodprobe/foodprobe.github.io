@@ -2,10 +2,12 @@ function sendData(authKey, temperature, probeId) {
 
 
 //Setup
+var url = "https://integration.koolzone.com:80/api/live-probe-reading";
 var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+    
 xmlhttp.open("POST", url, true);
 xmlhttp.setRequestHeader("Content-Type", "application/json");
-xmlhttp.setRequestHeader("Authorization", "Basic " + authKey); //authKey defined in auth.js
+xmlhttp.setRequestHeader("Authorization", "Basic " + authKey); 
 
 //Add Handler
 xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
