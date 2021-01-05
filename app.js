@@ -40,7 +40,7 @@ function handleTempMeasurement(tempMeasurement) {
     //Send tempMeasurement.temperature via Http
     sendData(apiKey, tempMeasurement.temperature, serialPrefix + ETISensor.getDevice().name.substring(0, 8));
     
-    if (measurementCount == maxMeasurements) {
+    if (measurementCount >= maxMeasurements) {
       statusText.textContent = 'Please reconnect.';
       ETISensor.stopNotificationsTempMeasurement();
       measurementCount = 0;
