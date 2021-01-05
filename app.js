@@ -9,7 +9,7 @@ statusText.addEventListener('click', onClick);
                             
                             
   function onClick() {
-  statusText.textContent = '...';
+  //statusText.textContent = '...';
   temperatures = [];
     
   //Prompt for API key
@@ -40,17 +40,17 @@ function handleTempMeasurement(tempMeasurement) {
     //Send tempMeasurement.temperature via Http
     sendData(apiKey, tempMeasurement.temperature, serialPrefix + ETISensor.getDevice().name.substring(0, 8));
     
-    if (measurementCount >= maxMeasurements) {
+    //Graph
+    drawWaves();
+  });
+  
+  if (measurementCount >= maxMeasurements) {
       statusText.textContent = 'Please reconnect.';
       ETISensor.stopNotificationsTempMeasurement();
       measurementCount = 0;
     } 
     measurementCount = measurementCount + 1;
     console.log("Measurement count: " + measurementCount);
-    
-    //Graph
-    drawWaves();
-  });
 }
 
 var temperatures = [];
