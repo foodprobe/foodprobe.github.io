@@ -10,6 +10,9 @@ statusText.addEventListener('click', onClick);
   function onClick() {
   statusText.textContent = '...';
   temperatures = [];
+    
+  //dummy prompt
+  var person = prompt("Please enter your name", "Harry Potter");
 
 
   //Connect to probe
