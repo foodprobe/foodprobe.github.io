@@ -1,4 +1,4 @@
-function sendData(temperature, probeId) {
+function sendData(authKey, temperature, probeId) {
 
 
 //Setup
