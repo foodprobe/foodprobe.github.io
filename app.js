@@ -43,7 +43,7 @@ function tempEvent() {
     if (measurementCount >= maxMeasurements) {
       statusText.textContent = 'Please reconnect.';
       ETISensor.stopNotificationsTempMeasurement();
-      tempMeasurement.removeEventListener('characteristicvaluechanged', tempEvent);
+      //tempMeasurement.removeEventListener('characteristicvaluechanged', tempEvent);
       measurementCount = 0;
     } else {
     measurementCount = measurementCount + 1;
@@ -57,6 +57,7 @@ function tempEvent() {
 
 //Handler for new temperature measurement.
 function handleTempMeasurement(tempMeasurement) {
+  console.log("Am I called all of the time?");
   tempMeasurement.addEventListener('characteristicvaluechanged', tempEvent);
 }
 
