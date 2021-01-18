@@ -11,12 +11,7 @@ statusText.addEventListener('click', onClick);
   function onClick() {
   //statusText.textContent = '...';
   temperatures = [];
-    
-  //Prompt for API key
-  //TODO - proper authentication
-  apiKey = prompt("Please enter the API password");
-  //apiKey = "kz-staging-2021";
-
+  
 
   //Connect to probe
   console.log("V0.1. Connecting to probe...");
@@ -56,7 +51,11 @@ function tempEvent() {
 
 
 //Handler for new temperature measurement.
-function handleTempMeasurement(tempMeasurement) {
+function handleTempMeasurement(tempMeasurement) { 
+  //Prompt for password
+  //TODO - proper authentication
+  apiKey = prompt("Please enter the API password");
+  
   tempMeasurement.addEventListener('characteristicvaluechanged', tempEvent);
 }
 
