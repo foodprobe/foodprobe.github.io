@@ -3,7 +3,7 @@ var statusText = document.querySelector('#statusText');
 var serialPrefix = "00000000";
 var measurementCount = 0; //used to count how many measurements are taken
 var maxMeasurements = 60; //adjusts how many measurements are taken before a reset (prevents unit left on)
-var apiKey;
+var apiKey = "";
 
 statusText.addEventListener('click', onClick);
                             
@@ -53,8 +53,9 @@ function tempEvent() {
 //Handler for new temperature measurement.
 function handleTempMeasurement(tempMeasurement) { 
   //Prompt for password
-  //TODO - proper authentication
+  if (apiKey == "") {
   apiKey = prompt("Please enter the API password");
+  }
   
   tempMeasurement.addEventListener('characteristicvaluechanged', tempEvent);
 }
