@@ -15,7 +15,7 @@ statusText.addEventListener('click', onClick);
   //Prompt for API key
   //TODO - proper authentication
   //apiKey = prompt("Please enter the API password");
-    apiKey = "koolzone_api";
+    apiKey = "kz-staging-2021";
 
 
   //Connect to probe
